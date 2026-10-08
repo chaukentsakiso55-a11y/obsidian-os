@@ -1,0 +1,13 @@
+{
+  "name": "obsidian-desktop",
+  "private": true,
+  "version": "0.1.0",
+  "scripts": {
+    "dev": "npm --prefix ../web run dev",
+    "build": "npm --prefix ../web run build",
+    "desktop": "tauri dev"
+  },
+  "devDependencies": {
+    "@tauri-apps/cli": "^2.0.0"
+  }
+}
