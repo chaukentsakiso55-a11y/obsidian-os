@@ -1,0 +1,1 @@
+fn main() { obsidian_desktop::run(); }
