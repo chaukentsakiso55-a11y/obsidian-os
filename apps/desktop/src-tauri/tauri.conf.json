@@ -1,0 +1,26 @@
+{
+  "productName": "OBSIDIAN",
+  "version": "0.1.0",
+  "identifier": "com.cyberpulse.obsidian",
+  "build": {
+    "beforeDevCommand": "npm run dev",
+    "devUrl": "http://localhost:5173",
+    "beforeBuildCommand": "npm run build",
+    "frontendDist": "../../web/dist"
+  },
+  "app": {
+    "windows": [
+      {
+        "title": "OBSIDIAN Guardian",
+        "width": 1100,
+        "height": 750
+      }
+    ],
+    "security": {
+      "csp": null
+    }
+  },
+  "bundle": {
+    "active": false
+  }
+}
