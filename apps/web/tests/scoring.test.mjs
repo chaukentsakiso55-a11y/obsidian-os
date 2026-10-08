@@ -1,9 +1,13 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
-test("scoring source exports expected functions", () => {
- const source = readFileSync(new URL("../src/scoring.ts", import.meta.url), "utf8");
- assert.match(source, /export function analyzeText/);
- assert.match(source, /export function analyzeUrl/);
- assert.match(source, /export function scoreSignals/);
-});
+import ts from "typescript";
+const source = readFileSync(new URL("../src/scoring.ts", import.meta.url), "utf8");
+const js = ts.transpileModule(source, { compilerOptions: { module: ts.ModuleKind.ESNext, target: ts.ScriptTarget.ES2022 } }).outputText;
+const { analyzeText, analyzeUrl, scoreSignals } = await import("data:text/javascript," + encodeURIComponent(js));
+test("normal text is unknown", () => assert.equal(analyzeText("hello").risk, "unknown"));
+test("multiple suspicious signals are high risk", () => assert.equal(analyzeText("Act immediately and send your password").risk, "high"));
+test("http is flagged", () => assert.equal(analyzeUrl("http://example.org").score, 25));
+test("invalid URL rejected", () => assert.equal(analyzeUrl("not a url").risk, "invalid"));
+test("duplicate signals count once", () => assert.equal(scoreSignals(["pressure", "pressure"]).score, 30));
+test("input limit", () => assert.throws(() => analyzeText("x".repeat(10001))));
