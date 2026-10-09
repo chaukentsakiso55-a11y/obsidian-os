@@ -36,7 +36,18 @@ jobs:
       - uses: gradle/actions/setup-gradle@v4
         with:
           gradle-version: '8.9'
-      - run: gradle -p apps/android :app:testDebugUnitTest :app:assembleDebug --no-daemon
+      - name: Test and compile Android launcher
+        run: gradle -p apps/android :app:testDebugUnitTest :app:assembleDebug --stacktrace --no-daemon
+      - name: Save Android test and build diagnostics
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: obsidian-android-diagnostics
+          path: |
+            apps/android/app/build/reports/tests/
+            apps/android/app/build/test-results/
+            apps/android/app/build/outputs/logs/
+          if-no-files-found: ignore
       - uses: actions/upload-artifact@v4
         if: success()
         with:
