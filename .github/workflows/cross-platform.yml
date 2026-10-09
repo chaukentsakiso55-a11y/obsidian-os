@@ -37,6 +37,12 @@ jobs:
         with:
           gradle-version: '8.9'
       - run: gradle -p apps/android :app:testDebugUnitTest :app:assembleDebug --no-daemon
+      - uses: actions/upload-artifact@v4
+        if: success()
+        with:
+          name: obsidian-android-debug-apk
+          path: apps/android/app/build/outputs/apk/debug/*.apk
+          if-no-files-found: error
   desktop:
     runs-on: ubuntu-22.04
     steps:
