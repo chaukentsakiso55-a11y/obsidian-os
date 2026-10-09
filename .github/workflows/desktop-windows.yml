@@ -1,0 +1,34 @@
+name: OBSIDIAN Windows Hybrid
+on:
+  push:
+    paths:
+      - 'apps/desktop/**'
+      - 'apps/web/**'
+      - '.github/workflows/desktop-windows.yml'
+  pull_request:
+  workflow_dispatch:
+jobs:
+  windows:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - uses: dtolnay/rust-toolchain@stable
+      - name: Install frontend dependencies
+        run: npm install
+        working-directory: apps/web
+      - name: Install desktop dependencies
+        run: npm install
+        working-directory: apps/desktop
+      - name: Build Windows hybrid installer
+        run: npm run package
+        working-directory: apps/desktop
+      - name: Upload Windows installer
+        if: success()
+        uses: actions/upload-artifact@v4
+        with:
+          name: obsidian-windows-hybrid
+          path: apps/desktop/src-tauri/target/release/bundle/nsis/*.exe
+          if-no-files-found: error
