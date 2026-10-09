@@ -1,0 +1,6 @@
+#!/bin/sh
+set -eu
+mkdir -p /opt/obsidian
+cp -r /usr/local/share/obsidian/obsidian /opt/obsidian/obsidian
+printf '%s\n' '#!/bin/sh' 'cd /opt/obsidian' 'exec python3 -m obsidian.cli "$@"' > /usr/local/bin/obsidian-scan
+chmod 755 /usr/local/bin/obsidian-scan
