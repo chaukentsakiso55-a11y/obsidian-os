@@ -1,0 +1,24 @@
+name: OBSIDIAN Boot OS Experimental
+on:
+  workflow_dispatch:
+jobs:
+  iso:
+    runs-on: ubuntu-22.04
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install live-build
+        run: sudo apt-get update && sudo apt-get install -y live-build
+      - name: Include OBSIDIAN Python analyzer
+        run: |
+          sudo mkdir -p apps/boot-os/config/includes.chroot/usr/local/share/obsidian
+          sudo cp -r obsidian apps/boot-os/config/includes.chroot/usr/local/share/obsidian/
+      - name: Build experimental ISO
+        run: sudo bash apps/boot-os/build-live.sh
+      - name: Upload ISO
+        if: success()
+        uses: actions/upload-artifact@v4
+        with:
+          name: obsidian-boot-os-experimental
+          path: apps/boot-os/*.iso
+          if-no-files-found: error
