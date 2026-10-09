@@ -1,0 +1,9 @@
+task-xfce-desktop
+network-manager
+firefox-esr
+python3
+python3-venv
+python3-tk
+git
+curl
+ca-certificates
