@@ -2,5 +2,7 @@
 set -eu
 test -f /opt/obsidian/obsidian/scoring.py
 test -f /opt/obsidian/obsidian_gui.py
+test -f /opt/obsidian/security_lab.py
 test -x /usr/local/bin/obsidian-gui
 test -x /usr/local/bin/obsidian-scan
+test -x /usr/local/bin/obsidian-cybersecurity
