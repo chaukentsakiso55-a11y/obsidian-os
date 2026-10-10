@@ -1,0 +1,8 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=OBSIDIAN Terminal
+Exec=xfce4-terminal
+Terminal=false
+Icon=utilities-terminal
+Categories=System;
