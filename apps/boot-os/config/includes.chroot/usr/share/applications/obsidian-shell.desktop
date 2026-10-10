@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=OBSIDIAN Desktop Alpha
+Comment=Offline OBSIDIAN shell preview
+Exec=obsidian-shell
+Icon=applications-system
+Terminal=false
+Categories=System;Utility;
