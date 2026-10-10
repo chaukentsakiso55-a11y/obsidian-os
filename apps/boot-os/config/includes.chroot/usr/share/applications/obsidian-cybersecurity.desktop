@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=OBSIDIAN Cybersecurity Center
+Comment=Read-only device health and future lab placeholders
+Exec=obsidian-cybersecurity
+Terminal=false
+Icon=security-high
+Categories=System;Utility;
