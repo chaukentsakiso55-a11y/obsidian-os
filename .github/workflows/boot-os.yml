@@ -12,8 +12,8 @@ jobs:
           python-version: '3.11'
       - name: Run security engine tests
         run: python -m unittest discover -s tests -v
-      - name: Syntax check desktop dashboard
-        run: python -m py_compile apps/boot-os/desktop/obsidian_gui.py
+      - name: Syntax check desktop applications
+        run: python -m py_compile apps/boot-os/desktop/obsidian_gui.py apps/boot-os/desktop/security_lab.py
       - name: Install live-build
         run: sudo apt-get update && sudo apt-get install -y live-build
       - name: Build Debian live ISO
