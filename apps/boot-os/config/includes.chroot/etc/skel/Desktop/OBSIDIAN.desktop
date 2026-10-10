@@ -1,8 +1,9 @@
 [Desktop Entry]
 Version=1.0
 Type=Application
-Name=OBSIDIAN Security
-Comment=Offline OBSIDIAN threat assessment
-Exec=xfce4-terminal --hold -e "python3 -m obsidian.cli text 'Act immediately and send your password'"
+Name=OBSIDIAN Security Center
+Comment=Offline threat scoring dashboard
+Exec=obsidian-gui
 Terminal=false
-Categories=Utility;Security;
+Icon=security-high
+Categories=Utility;
