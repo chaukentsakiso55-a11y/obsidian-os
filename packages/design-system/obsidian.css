@@ -1,0 +1,29 @@
+:root {
+  color-scheme: dark;
+  --obsidian-bg: #030816;
+  --obsidian-surface: #07132d;
+  --obsidian-panel: rgba(4, 17, 39, 0.88);
+  --obsidian-panel-strong: #07172e;
+  --obsidian-blue: #008dff;
+  --obsidian-cyan: #00d9ff;
+  --obsidian-violet: #8547ff;
+  --obsidian-magenta: #e020e8;
+  --obsidian-success: #14e5a2;
+  --obsidian-warning: #ffc44d;
+  --obsidian-danger: #ff496c;
+  --obsidian-text: #e6f4ff;
+  --obsidian-muted: #9cb4d3;
+  --obsidian-border: rgba(0, 186, 255, 0.64);
+  --obsidian-radius: 12px;
+  --obsidian-glow: 0 0 12px rgba(0, 157, 255, 0.35);
+  --obsidian-topbar-height: 44px;
+  --obsidian-sidebar-width: 212px;
+  --obsidian-dock-height: 60px;
+}
+.obsidian-shell { background: var(--obsidian-bg); color: var(--obsidian-text); font-family: Inter, "DejaVu Sans", sans-serif; }
+.obsidian-panel { background: var(--obsidian-panel); border: 1px solid var(--obsidian-border); border-radius: var(--obsidian-radius); box-shadow: var(--obsidian-glow); backdrop-filter: blur(14px); }
+.obsidian-active { border-color: var(--obsidian-cyan); background: linear-gradient(90deg,rgba(0,112,255,.45),rgba(0,80,180,.18)); box-shadow: 0 0 16px rgba(0,125,255,.65); }
+.obsidian-button { color: var(--obsidian-text); background: #0b2346; border: 1px solid var(--obsidian-border); border-radius: 7px; padding: 9px 14px; cursor: pointer; }
+.obsidian-button:focus-visible { outline: 2px solid var(--obsidian-cyan); outline-offset: 3px; }
+.obsidian-button:hover { background: #12386d; }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; } }
