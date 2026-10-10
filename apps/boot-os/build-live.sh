@@ -15,7 +15,7 @@ cp "$ROOT/desktop/obsidian_gui.py" "$ROOT/config/includes.chroot/opt/obsidian/ob
 cp "$ROOT/desktop/security_lab.py" "$ROOT/config/includes.chroot/opt/obsidian/security_lab.py"
 printf '%s\n' '#!/bin/sh' 'exec python3 /opt/obsidian/obsidian_gui.py "$@"' > "$ROOT/config/includes.chroot/usr/local/bin/obsidian-gui"
 printf '%s\n' '#!/bin/sh' 'cd /opt/obsidian' 'exec python3 -m obsidian.cli "$@"' > "$ROOT/config/includes.chroot/usr/local/bin/obsidian-scan"
-printf '%s\\n' '#!/bin/sh' 'exec python3 /opt/obsidian/security_lab.py "$@"' > "$ROOT/config/includes.chroot/usr/local/bin/obsidian-cybersecurity"
+printf '%s\n' '#!/bin/sh' 'exec python3 /opt/obsidian/security_lab.py "$@"' > "$ROOT/config/includes.chroot/usr/local/bin/obsidian-cybersecurity"
 chmod 755 "$ROOT/config/includes.chroot/usr/local/bin/obsidian-gui" "$ROOT/config/includes.chroot/usr/local/bin/obsidian-scan" "$ROOT/config/includes.chroot/usr/local/bin/obsidian-cybersecurity"
 cd "$ROOT"
 lb config --mode debian --distribution bookworm --architectures amd64 --binary-images iso-hybrid --debian-installer none --archive-areas main --bootappend-live "boot=live components"
