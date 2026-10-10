@@ -1,15 +1,21 @@
-# OBSIDIAN Boot OS (experimental)
+# OBSIDIAN Boot OS
 
-This is a Debian 12 live ISO configuration with XFCE and an offline OBSIDIAN Python analyzer. It is **not** a new kernel, a Windows replacement, or a production security distribution.
+OBSIDIAN Boot OS is a Debian 12 amd64 live system with an XFCE desktop and a native offline Python/Tkinter security dashboard. It boots independently from Windows; it does not overwrite the internal drive. The current security engine provides heuristic message and URL scoring, not antivirus or comprehensive endpoint protection.
 
-Build inside a disposable Debian 12 VM with sufficient disk space:
+## Build
 
-```sh
+Use the GitHub Actions workflow `OBSIDIAN Boot OS` (manual dispatch), or build in a dedicated Debian/Ubuntu build VM:
+
+```bash
 sudo apt-get update
 sudo apt-get install -y live-build
 sudo bash apps/boot-os/build-live.sh
 ```
 
-A built ISO should be tested in a virtual machine first. Do not install to internal disks. USB persistence is optional and must be configured separately; the boot parameter alone does not create a persistent volume.
+Output: `apps/boot-os/live-image-amd64.hybrid.iso` (filename may vary with live-build version). Requires internet access, several gigabytes of free disk space, and an amd64 CPU.
 
-The live configuration copies the Python `obsidian` package into `/usr/local/share/obsidian` during CI or before the build. The desktop shortcut is a demo only and must be revised before release.
+## Use
+
+Test the ISO in a virtual machine before writing it to USB. Open **OBSIDIAN Security Center** from the desktop or application menu. Select Message or URL, enter input, and choose Analyze locally. Command-line scans are also available through `obsidian-scan text "example"` and `obsidian-scan url "https://example.com"`.
+
+The ISO does not automatically enable persistence or install onto a disk. No remote management or background malware scanning is claimed. Existing OS and disks should not be modified by the build or normal live boot. Do not treat this experimental build as production-ready until the ISO is built and tested in a VM.
