@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=OBSIDIAN Security Center
+Comment=Offline threat scoring dashboard
+Exec=obsidian-gui
+Terminal=false
+Icon=security-high
+Categories=Utility;
