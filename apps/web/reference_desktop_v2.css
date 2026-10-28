@@ -1,0 +1,12 @@
+:root{--ac:#00cfff;--card:rgba(4,12,32,.9);--bd:rgba(0,173,255,.48)}
+#desk{background-image:linear-gradient(90deg,#0005,#0002),url('assets/reference_00.png')!important;background-position:center!important;background-size:cover!important}
+#top{background:#010718ed;border-bottom:1px solid #086db5;box-shadow:0 2px 18px #003a7588}
+.win{background:#02091cee;border:1px solid #1164b6;border-radius:9px;box-shadow:0 12px 48px #000a,0 0 22px #0064c655}
+.win.f{border-color:#00cfff;box-shadow:0 12px 54px #000c,0 0 25px #007bd688}
+.wh{background:linear-gradient(90deg,#052b5cdd,#06122cdd);border-bottom:1px solid #1164b6}
+#dock{background:#020b20ec;border:1px solid #147fd0;box-shadow:0 0 28px #0058ae88}
+.c{background:#03112cde;border-color:#12538d}
+.ob-ref-gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px;padding:8px}
+.ob-ref-item{border:1px solid #135f9e;background:#04122c;padding:8px;border-radius:9px;cursor:pointer;text-align:left;color:#dceeff}
+.ob-ref-item img{display:block;width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:5px;margin-bottom:7px}
+.ob-ref-large{display:block;width:100%;max-height:75vh;object-fit:contain}
